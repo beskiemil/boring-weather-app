@@ -4,29 +4,40 @@ import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import {
   Row,
   StyledDate,
-  WeatherIcon,
   StyledLocation,
   WeatherData,
   Wrapper,
-} from './ForecastTile.styles';
-import Box from 'components/molecules/Box/Box';
+  IconWrapper,
+  Time,
+  Icon,
+} from './ForecastTileFull.styles';
+import { Icon as WeatherIcon } from 'components/atoms/WeatherIcon/WeatherIcon';
 
-const ForecastTile = ({
+const ForecastTileFull = ({
   location,
   date,
   weather_code,
   temp,
   rain,
   humidity,
+  sunset,
+  sunrise,
 }) => {
   return (
     <Wrapper>
       <StyledLocation>{location}</StyledLocation>
       <StyledDate>{date}</StyledDate>
       <Row>
-        <FontAwesomeIcon icon={solid('sun')} size="sm" />
-        <WeatherIcon icon={solid('sun')} size="xl" />
-        <FontAwesomeIcon icon={solid('moon')} size="sm" />
+        <IconWrapper>
+          <Icon className="sunrise" icon={solid('sun')} />
+          <Time>{sunrise}</Time>
+        </IconWrapper>
+
+        <WeatherIcon weatherCode={weather_code} />
+        <IconWrapper>
+          <Icon className="sunset" icon={solid('moon')} />
+          <Time>{sunset}</Time>
+        </IconWrapper>
       </Row>
 
       <Row>
@@ -38,6 +49,6 @@ const ForecastTile = ({
   );
 };
 
-ForecastTile.propTypes = {};
+ForecastTileFull.propTypes = {};
 
-export default ForecastTile;
+export default ForecastTileFull;

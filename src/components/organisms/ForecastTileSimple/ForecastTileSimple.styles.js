@@ -14,8 +14,7 @@ export const StyledLocation = styled.h1`
 `;
 
 export const StyledDate = styled.h3`
-  font-weight: normal;
-  font-size: 14px;
+  font-size: 16px;
 `;
 
 export const WeatherIcon = styled(FontAwesomeIcon)`
@@ -28,7 +27,7 @@ export const WeatherData = styled.h4`
   &.temp {
     font-size: 30px;
     font-weight: bold;
-    margin-bottom: calc(1.12 * 16px);
+    margin: 0px 20px calc(1.12 * 16px) 20px;
   }
   &.humidity::after {
     font-size: 10px;
@@ -48,8 +47,8 @@ export const WeatherData = styled.h4`
 
 export const Row = styled.div`
   width: 100%;
-  padding: 0 20px;
+  margin: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-end;
 `;

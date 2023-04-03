@@ -4,7 +4,7 @@ export const queryClient = new QueryClient();
 
 export const fetchLocalizations = async (locationString) => {
   const encodedLocationString = encodeURIComponent(locationString);
-  const api = `https://api.geoapify.com/v1/geocode/search?text=${encodedLocationString}&apiKey=be8ee48c920d45bdaa580ece0f92e168`;
+  const api = `https://api.geoapify.com/v1/geocode/search?text=${encodedLocationString}&format=json&apiKey=be8ee48c920d45bdaa580ece0f92e168`;
   const res = await fetch(api);
   return res.json();
 };

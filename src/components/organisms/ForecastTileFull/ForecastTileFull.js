@@ -1,5 +1,5 @@
 import React from 'react';
-import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
+import PropTypes from 'prop-types';
 import {
   Row,
   StyledDate,
@@ -28,12 +28,12 @@ const ForecastTileFull = ({
       <StyledDate>{date}</StyledDate>
       <Row>
         <IconWrapper>
-          <Icon className="sunrise" icon={solid('sun')} />
+          <Icon className="sunrise" icon={'fa-solid fa-sun'} />
           <Time>{sunrise}</Time>
         </IconWrapper>
         <WeatherIcon weatherCode={weather_code} />
         <IconWrapper>
-          <Icon className="sunset" icon={solid('moon')} />
+          <Icon className="sunset" icon={'fa-solid fa-moon'} />
           <Time>{sunset}</Time>
         </IconWrapper>
       </Row>
@@ -47,6 +47,15 @@ const ForecastTileFull = ({
   );
 };
 
-ForecastTileFull.propTypes = {};
+ForecastTileFull.propTypes = {
+  location: PropTypes.string,
+  date: PropTypes.string,
+  weather_code: PropTypes.number,
+  temp: PropTypes.number,
+  rain: PropTypes.number,
+  humidity: PropTypes.number,
+  sunset: PropTypes.string,
+  sunrise: PropTypes.string,
+};
 
 export default ForecastTileFull;

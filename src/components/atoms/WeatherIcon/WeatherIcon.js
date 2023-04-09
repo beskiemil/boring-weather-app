@@ -206,6 +206,8 @@ export const WeatherIcon = ({ weatherCode }) => {
   );
 };
 
-WeatherIcon.propTypes = {};
+WeatherIcon.propTypes = {
+  weatherCode: PropTypes.number,
+};
 
 export default WeatherIcon;

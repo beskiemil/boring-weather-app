@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import ForecastTile from 'components/organisms/ForecastTileFull/ForecastTileFull';
+import React from 'react';
 import { fetchWeatherData } from 'providers/QueryProvider';
 import { fetchLocalizations } from 'providers/QueryProvider';
 import { useQuery } from 'react-query';
@@ -8,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 import ForecastTileFull from 'components/organisms/ForecastTileFull/ForecastTileFull';
 import ForecastTileSimple from 'components/organisms/ForecastTileSimple/ForecastTileSimple';
 
-const Forecast = () => {
+const ForecastPage = () => {
   const { state: locationQuery } = useLocation();
   const {
     data: locationData,
@@ -40,7 +39,7 @@ const Forecast = () => {
     ' ' +
     actualDate.getFullYear();
   const actualHour = actualDate.getHours();
-  const actualTime = actualHour + ':' + actualDate.getMinutes();
+  //const actualTime = actualHour + ':' + actualDate.getMinutes();
 
   if (
     locationStatus === 'loading' ||
@@ -119,7 +118,7 @@ const Forecast = () => {
   //<ForecastTileSimple />;
 };
 
-export default Forecast;
+export default ForecastPage;
 
 // {weatherData.hourly.time.map((i) => {
 //   i === actualHour ? (

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Row,
   StyledDate,
@@ -24,6 +25,12 @@ const ForecastTileSimple = ({ hour, humidity, temp, rain, weather_code }) => {
   );
 };
 
-ForecastTileSimple.propTypes = {};
+ForecastTileSimple.propTypes = {
+  weather_code: PropTypes.number,
+  temp: PropTypes.number,
+  rain: PropTypes.number,
+  humidity: PropTypes.number,
+  hour: PropTypes.string,
+};
 
 export default ForecastTileSimple;

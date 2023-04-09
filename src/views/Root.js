@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import theme from 'assets/styles/theme.js';
 import GlobalStyle from 'assets/styles/GlobalStyle';
-import MainTemplate from 'components/templates/MainTemplate';
-import Location from './Location';
-import Forecast from './Forecast';
+import ForecastTemplate from 'components/templates/ForecastTemplate';
+import HomePage from './HomePage';
+import ForecastPage from './ForecastPage';
 import { QueryClientProvider } from 'react-query';
 import { queryClient } from 'providers/QueryProvider';
 import { ReactQueryDevtools } from 'react-query/devtools';
@@ -23,11 +23,14 @@ import {
   faCloudMeatball,
   faCloudSunRain,
   faExclamation,
+  faLocationDot,
+  faMoon,
 } from '@fortawesome/free-solid-svg-icons';
 
 const Root = () => {
   library.add(
     faSun,
+    faMoon,
     faCloud,
     faSmog,
     faCloudSun,
@@ -38,22 +41,22 @@ const Root = () => {
     faSnowflake,
     faCloudMeatball,
     faCloudSunRain,
-    faExclamation
+    faExclamation,
+    faLocationDot
   );
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <MainTemplate>
-          <QueryClientProvider client={queryClient}>
-            <Routes>
-              <Route path="/" element={<Location />} />
-              <Route path="/forecast" element={<Forecast />} />
-            </Routes>
-
-            <ReactQueryDevtools />
-          </QueryClientProvider>
-        </MainTemplate>
+        <QueryClientProvider client={queryClient}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route element={<ForecastTemplate />}>
+              <Route path="/forecast" element={<ForecastPage />} />
+            </Route>
+          </Routes>
+          <ReactQueryDevtools />
+        </QueryClientProvider>
       </ThemeProvider>
     </BrowserRouter>
   );

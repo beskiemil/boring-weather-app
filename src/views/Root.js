@@ -9,8 +9,37 @@ import Forecast from './Forecast';
 import { QueryClientProvider } from 'react-query';
 import { queryClient } from 'providers/QueryProvider';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faSun,
+  faCloud,
+  faSmog,
+  faWater,
+  faCloudSun,
+  faCloudRain,
+  faCloudShowersHeavy,
+  faCloudBolt,
+  faSnowflake,
+  faCloudMeatball,
+  faCloudSunRain,
+  faExclamation,
+} from '@fortawesome/free-solid-svg-icons';
 
 const Root = () => {
+  library.add(
+    faSun,
+    faCloud,
+    faSmog,
+    faCloudSun,
+    faWater,
+    faCloudRain,
+    faCloudShowersHeavy,
+    faCloudBolt,
+    faSnowflake,
+    faCloudMeatball,
+    faCloudSunRain,
+    faExclamation
+  );
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>

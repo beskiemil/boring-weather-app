@@ -91,6 +91,7 @@ const Forecast = () => {
               temp={weatherData.hourly.temperature_2m[i]}
               rain={weatherData.hourly.rain[i]}
               humidity={weatherData.hourly.relativehumidity_2m[i]}
+              weather_code={weatherData.hourly.weathercode[i]}
             />
           </Box>
         ) : i > actualHour && i - actualHour < 3 ? (
@@ -101,6 +102,7 @@ const Forecast = () => {
               temp={weatherData.hourly.temperature_2m[i]}
               rain={weatherData.hourly.rain[i]}
               humidity={weatherData.hourly.relativehumidity_2m[i]}
+              weather_code={weatherData.hourly.weathercode[i]}
             />
           </Box>
         ) : (

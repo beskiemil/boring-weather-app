@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import {
   Row,
@@ -11,7 +10,7 @@ import {
   Time,
   Icon,
 } from './ForecastTileFull.styles';
-import { Icon as WeatherIcon } from 'components/atoms/WeatherIcon/WeatherIcon';
+import { WeatherIcon } from 'components/atoms/WeatherIcon/WeatherIcon';
 
 const ForecastTileFull = ({
   location,
@@ -32,7 +31,6 @@ const ForecastTileFull = ({
           <Icon className="sunrise" icon={solid('sun')} />
           <Time>{sunrise}</Time>
         </IconWrapper>
-
         <WeatherIcon weatherCode={weather_code} />
         <IconWrapper>
           <Icon className="sunset" icon={solid('moon')} />

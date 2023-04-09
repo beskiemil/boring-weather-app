@@ -48,7 +48,8 @@
       "prettier/prettier": [
         "warn",
         {
-          "singleQuote": true
+          "singleQuote": true,
+          "endOfLine": "crlf"
         }
       ]
     },

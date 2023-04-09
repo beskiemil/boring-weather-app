@@ -1,21 +1,18 @@
-import React, { useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
+import React from 'react';
 import {
   Row,
   StyledDate,
-  WeatherIcon,
-  StyledLocation,
   WeatherData,
   Wrapper,
 } from './ForecastTileSimple.styles';
+import WeatherIcon from 'components/atoms/WeatherIcon/WeatherIcon';
 
-const ForecastTileSimple = ({ hour, humidity, temp, rain }) => {
+const ForecastTileSimple = ({ hour, humidity, temp, rain, weather_code }) => {
   return (
     <Wrapper>
       <StyledDate>{hour}</StyledDate>
       <Row>
-        <WeatherIcon icon={solid('sun')} size="xl" />
+        <WeatherIcon weatherCode={weather_code} size="xl" />
       </Row>
 
       <Row>

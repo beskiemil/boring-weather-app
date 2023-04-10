@@ -4,6 +4,7 @@ import {
   Row,
   StyledDate,
   StyledLocation,
+  StyledHour,
   WeatherData,
   Wrapper,
   IconWrapper,
@@ -14,6 +15,7 @@ import { WeatherIcon } from 'components/atoms/WeatherIcon/WeatherIcon';
 
 const ForecastTileFull = ({
   location,
+  hour,
   date,
   weather_code,
   temp,
@@ -24,6 +26,7 @@ const ForecastTileFull = ({
 }) => {
   return (
     <Wrapper>
+      <StyledHour>{hour}</StyledHour>
       <StyledLocation>{location}</StyledLocation>
       <StyledDate>{date}</StyledDate>
       <Row>

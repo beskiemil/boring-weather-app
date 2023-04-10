@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import { fetchWeatherData } from 'providers/QueryProvider';
 import { fetchLocalizations } from 'providers/QueryProvider';
 import { useQuery } from 'react-query';
@@ -6,6 +6,21 @@ import Box from 'components/molecules/Box/Box';
 import { useLocation } from 'react-router-dom';
 import ForecastTileFull from 'components/organisms/ForecastTileFull/ForecastTileFull';
 import ForecastTileSimple from 'components/organisms/ForecastTileSimple/ForecastTileSimple';
+import { Button } from 'components/atoms/Button/Button';
+
+const reducer = (state, action) => {
+  console.log(state);
+  switch (action.type) {
+    case 'previous':
+      if (state > 0) return state - 1;
+      else return state;
+    case 'next':
+      if (state < 23) return state + 1;
+      else return state;
+    default:
+      return state;
+  }
+};
 
 const ForecastPage = () => {
   const { state: locationQuery } = useLocation();
@@ -39,7 +54,8 @@ const ForecastPage = () => {
     ' ' +
     actualDate.getFullYear();
   const actualHour = actualDate.getHours();
-  //const actualTime = actualHour + ':' + actualDate.getMinutes();
+
+  const [forecastNumber, dispatch] = useReducer(reducer, actualHour);
 
   if (
     locationStatus === 'loading' ||
@@ -67,12 +83,14 @@ const ForecastPage = () => {
 
   return (
     <>
+      <Button onClick={() => dispatch({ type: 'previous' })}>Previous</Button>
       {weatherData.hourly.time.map((time, i) => {
-        return i === actualHour ? (
+        return i === forecastNumber ? (
           <Box>
             <ForecastTileFull
               key={i}
               location={locationData.results[0].address_line1}
+              hour={time.slice(11, 16)}
               date={actualDateString}
               weather_code={weatherData.hourly.weathercode[i]}
               temp={weatherData.hourly.temperature_2m[i]}
@@ -82,7 +100,7 @@ const ForecastPage = () => {
               sunset={weatherData.daily.sunset[0].slice(11, 16)}
             />
           </Box>
-        ) : i < actualHour && actualHour - i < 3 ? (
+        ) : i < forecastNumber && forecastNumber - i < 2 ? (
           <Box>
             <ForecastTileSimple
               key={i}
@@ -93,7 +111,7 @@ const ForecastPage = () => {
               weather_code={weatherData.hourly.weathercode[i]}
             />
           </Box>
-        ) : i > actualHour && i - actualHour < 3 ? (
+        ) : i > forecastNumber && i - forecastNumber < 2 ? (
           <Box>
             <ForecastTileSimple
               key={i}
@@ -105,39 +123,12 @@ const ForecastPage = () => {
             />
           </Box>
         ) : (
-          <span></span>
+          <span key={i}></span>
         );
       })}
+      <Button onClick={() => dispatch({ type: 'next' })}>Next</Button>
     </>
   );
-
-  //if (i < actualHour)
-  //<ForecastTileSimple />;
-
-  //if (i > actualHour)
-  //<ForecastTileSimple />;
 };
 
 export default ForecastPage;
-
-// {weatherData.hourly.time.map((i) => {
-//   i === actualHour ? (
-//     <Box>
-//       <ForecastTileFull
-//         location={locationData.results[0].address_line1}
-//         date={actualDateString}
-//         weather_code={weatherData.hourly.weathercode[i]}
-//         temp={weatherData.hourly.temperature_2m[i]}
-//         rain={weatherData.hourly.rain[i]}
-//         humidity={weatherData.hourly.relativehumidity_2m[i]}
-//       />
-//     </Box>
-//   ) : (
-//     <ForecastTileSimple
-//       hour={actualTime}
-//       temp={weatherData.hourly.temperature_2m[i]}
-//       rain={weatherData.hourly.rain[i]}
-//       humidity={weatherData.hourly.relativehumidity_2m[i]}
-//     />
-//   );
-// })}

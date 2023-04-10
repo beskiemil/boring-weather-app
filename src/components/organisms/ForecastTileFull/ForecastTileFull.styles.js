@@ -11,6 +11,11 @@ export const Wrapper = styled.div`
 
 export const StyledLocation = styled.h1`
   margin-bottom: 0;
+  margin: 10px 0 0 0;
+`;
+export const StyledHour = styled.h3`
+  font-size: 16px;
+  margin-bottom: 0;
 `;
 
 export const StyledDate = styled.h3`

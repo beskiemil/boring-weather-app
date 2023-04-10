@@ -13,7 +13,7 @@ export const StyledLocation = styled.h1`
   margin-bottom: 0;
 `;
 
-export const StyledDate = styled.h3`
+export const StyledHour = styled.h3`
   font-size: 16px;
 `;
 

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Row,
-  StyledDate,
+  StyledHour,
   WeatherData,
   Wrapper,
 } from './ForecastTileSimple.styles';
@@ -11,7 +11,7 @@ import WeatherIcon from 'components/atoms/WeatherIcon/WeatherIcon';
 const ForecastTileSimple = ({ hour, humidity, temp, rain, weather_code }) => {
   return (
     <Wrapper>
-      <StyledDate>{hour}</StyledDate>
+      <StyledHour>{hour}</StyledHour>
       <Row>
         <WeatherIcon weatherCode={weather_code} size="xl" />
       </Row>

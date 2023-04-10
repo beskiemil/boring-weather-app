@@ -58,37 +58,37 @@ export const WeatherIcon = ({ weatherCode }) => {
         break;
       case 51:
         setIcon({
-          icon: 'fa-solid fa-cloud-water',
+          icon: 'fa-solid fa-cloud-rain',
           description: 'light drizzle',
         });
         break;
       case 53:
         setIcon({
-          icon: 'fa-solid fa-cloud-water',
+          icon: 'fa-solid fa-cloud-rain',
           description: 'moderate drizzle',
         });
         break;
       case 55:
         setIcon({
-          icon: 'fa-solid fa-cloud-water',
+          icon: 'fa-solid fa-cloud-rain',
           description: 'dense drizzle',
         });
         break;
       case 56:
         setIcon({
-          icon: 'fa-solid fa-cloud-water',
+          icon: 'fa-solid fa-cloud-rain',
           description: 'light freezing drizzle',
         });
         break;
       case 57:
         setIcon({
-          icon: 'fa-solid fa-cloud-water',
+          icon: 'fa-solid fa-cloud-rain',
           description: 'dense freezing drizzle',
         });
         break;
       case 61:
         setIcon({
-          icon: 'fa-solid fa-cloud-water',
+          icon: 'fa-solid fa-cloud-rain',
           description: 'light rain',
         });
         break;
@@ -106,13 +106,13 @@ export const WeatherIcon = ({ weatherCode }) => {
         break;
       case 66:
         setIcon({
-          icon: 'fa-solid fa-cloud-water',
+          icon: 'fa-solid fa-cloud-rain',
           description: 'light freezing rain',
         });
         break;
       case 67:
         setIcon({
-          icon: 'fa-solid fa-cloud-water',
+          icon: 'fa-solid fa-cloud-rain',
           description: 'heavy freezing rain',
         });
         break;

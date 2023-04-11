@@ -45,7 +45,7 @@ const Root = () => {
     faLocationDot
   );
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={window.location.pathname || ''}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <QueryClientProvider client={queryClient}>

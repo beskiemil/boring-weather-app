@@ -8,8 +8,7 @@ import ForecastTileFull from 'components/organisms/ForecastTileFull/ForecastTile
 import ForecastTileSimple from 'components/organisms/ForecastTileSimple/ForecastTileSimple';
 import { Button } from 'components/atoms/Button/Button';
 
-const reducer = (state, action) => {
-  console.log(state);
+const changeTile = (state, action) => {
   switch (action.type) {
     case 'previous':
       if (state > 0) return state - 1;
@@ -21,6 +20,10 @@ const reducer = (state, action) => {
       return state;
   }
 };
+const actualDate = new Date();
+const actualDateString = `${actualDate.getDate()} 
+  ${actualDate.getMonth() + 1} 
+  ${actualDate.getFullYear()}`;
 
 const ForecastPage = () => {
   const { state: locationQuery } = useLocation();
@@ -46,16 +49,10 @@ const ForecastPage = () => {
     }
   );
 
-  const actualDate = new Date();
-  const actualDateString =
-    actualDate.getDate() +
-    ' ' +
-    actualDate.getMonth() +
-    ' ' +
-    actualDate.getFullYear();
-  const actualHour = actualDate.getHours();
-
-  const [forecastNumber, dispatch] = useReducer(reducer, actualHour);
+  const [forecastNumber, dispatch] = useReducer(
+    changeTile,
+    new Date().getHours()
+  );
 
   if (
     locationStatus === 'loading' ||

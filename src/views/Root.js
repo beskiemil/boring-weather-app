@@ -55,7 +55,7 @@ const Root = () => {
               <Route path="/forecast" element={<ForecastPage />} />
             </Route>
           </Routes>
-          <ReactQueryDevtools />
+          {/* <ReactQueryDevtools /> */}
         </QueryClientProvider>
       </ThemeProvider>
     </BrowserRouter>

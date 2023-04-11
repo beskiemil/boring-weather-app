@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/boring-weather-app/static/css/main.e6c13ad2.css",
+    "main.js": "/boring-weather-app/static/js/main.e1cce713.js",
+    "index.html": "/boring-weather-app/index.html",
+    "main.e6c13ad2.css.map": "/boring-weather-app/static/css/main.e6c13ad2.css.map",
+    "main.e1cce713.js.map": "/boring-weather-app/static/js/main.e1cce713.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.e1cce713.js"
+  ]
+}
